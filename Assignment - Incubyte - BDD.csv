@@ -1,0 +1,93 @@
+"Feature: Compose Fuction in Gmail, to send an email with the body "" QA test for Incubyte"" and the subject ""Incubyte""
+",
+,
+"Positive Case1: Successfully Send an Email with Valid Recipient, Subject, and Body
+
+",
+Scenario,Successfully send an email with valid subject and body
+Given, the user is logged into Gmail
+And, the user is on the inbox page
+When,"the user clicks the ""Compose"" button"
+And,"the user enters ""test@test.com"" in the ""To"" field"
+And,"the user enters ""Incubyte"" in the ""Subject"" field"
+And,"the user enters ""QA test for Incubyte"" in the email body"
+And,"the user clicks the ""Send"" button"
+Then ,the email should be sent successfully
+And,"a confirmation message should be displayed saying ""Message sent"""
+,
+"Positive Case2: Successfully Send Email with CC and BCC Fields Filled
+",
+Scenario,Successfully Send Email with CC and BCC Fields Filled
+Given, the user is logged into Gmail
+And,the user is on the inbox page
+When,"the user enters ""test@test.com"" in the ""To"" field"
+And,"the user enters ""abccsd@gmail.com"" in the CC "
+And,"the user enters ""abc@gmail.com"" in the BCC"
+And,"the user enters ""Incubyte"" in the ""Subject"" field"
+And,"the user clicks the ""Send"" button"
+Then ,the email should be sent successfully
+And,"a confirmation message should be displayed saying ""Message sent"""
+,
+,
+"Negative Case3 :  Sending an Email Without a Recipient (To field blank)
+",
+Scenario ,Attempt to send an email without a recipient
+Given,the user is logged into Gmail
+And,the user is on the inbox page
+When,"the user clicks the ""Compose"" button"
+And," the user leaves the ""To"" field blank"
+And,"the user enters ""Incubyte"" in the ""Subject"" field"
+And,"the user enters ""QA test for Incubyte"" in the email body"
+And,"the user clicks the ""Send"" button"
+Then ,the email should not be sent
+And," an error message should be displayed saying ""Please specify at least one recipient"""
+,
+Negative Case 4: Sending an Email Without a Subject,
+Scenario,Attempt to send an email without a subject
+Given,the user is logged into Gmail
+And,the user is on the inbox page
+When,"the user clicks the ""Compose"" button"
+And,"the user enters ""test@gmail.com"" in the ""To"" field"
+And,"the user leaves the ""Subject"" field blank"
+And,"the user enters ""QA test for Incubyte"" in the email body"
+And,"the user clicks the ""Send"" button"
+Then ,"the system should prompt a warning message saying ""Send this message without a subject?"""
+And,the user can choose to either send the email or cancel the action
+,
+Negative Case 5:  Sending an Email Without a Body,
+Scenario,Attempt to send an email without a body
+Given,the user is logged into Gmail
+And,the user is on the inbox page
+When,"the user clicks the ""Compose"" button"
+And,"the user enters ""test@test.com"" in the ""To"" field"
+And,"the user enters ""Incubyte"" in the ""Subject"" field"
+And,the user leaves the email body blank
+And,"the user clicks the ""Send"" button"
+Then ,"the system should prompt a warning message saying ""Send this message without text in the body?"""
+And,"the user can choose to either send the email or cancel the action
+"
+,
+Negative Case 6:  Send an Email with Invalid Recipient Address,
+Scenario,Attempt to Send an Email with Invalid Recipient Address
+Given,the user is logged into Gmail
+And,the user is on the inbox page
+When,"the user clicks the ""Compose"" button"
+And,"the user enters ""INAVLIDEMAIL@test.com"" in the ""To"" field"
+And,"the user enters ""Incubyte"" in the ""Subject"" field"
+And,"the user enters ""QA test for Incubyte"" in the email body"
+And,"the user clicks the ""Send"" button"
+Then ,the email should not be sent
+And,"And the system should prompt a warning message saying ""The address ""vgjhkfdsugvhfdjk"" in the ""To"" field was not recognized. Please make sure that all addresses are properly formed."""
+,
+,
+"Negative Case 7: Send an Email with Empty ""To"" and ""Subject"" Fields",
+Scenario,"Attempt to Send an Email with Empty ""To"" and ""Subject"" Fields"
+Given,the user is logged into Gmail
+And,the user is on the inbox page
+When,"the user clicks the ""Compose"" button"
+And,"the user leaves the ""To"" field blank"
+And,"the user leaves the ""Subject"" field blank"
+And,"the user enters ""QA test for Incubyte"" in the email body"
+And,"the user clicks the ""Send"" button"
+Then ,the email should not be sent
+And,"an error message should be displayed saying ""Please specify at least one recipient"""
