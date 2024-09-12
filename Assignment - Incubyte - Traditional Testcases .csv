@@ -1,4 +1,4 @@
-"Feature: Compose Fuction in Gmail, to send an email with the body "" QA test for Incubyte"" and the subject ""Incubyte"" . ",,,,,
+
 Test Case ID,Test Case ,Test Scenario ,Precondition,Test Steps:,Expected Result
 TC_001,Successfully Send Email	,"Verify that an email is sent successfully when all fields (To, Subject, and Body) are filled correctly.",User is logged into Gmail and is on the inbox page.,"1. Click on the ""Compose"" button.
 2. Enter a valid email address in the ""To"" field (e.g., test@test.com).
