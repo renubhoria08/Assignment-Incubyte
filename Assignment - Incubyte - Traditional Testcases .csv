@@ -1,0 +1,42 @@
+"Feature: Compose Fuction in Gmail, to send an email with the body "" QA test for Incubyte"" and the subject ""Incubyte"" . ",,,,,
+Test Case ID,Test Case ,Test Scenario ,Precondition,Test Steps:,Expected Result
+TC_001,Successfully Send Email	,"Verify that an email is sent successfully when all fields (To, Subject, and Body) are filled correctly.",User is logged into Gmail and is on the inbox page.,"1. Click on the ""Compose"" button.
+2. Enter a valid email address in the ""To"" field (e.g., test@test.com).
+3. Enter ""Incubyte"" in the ""Subject"" field.
+4. Enter ""QA test for Incubyte"" in the email body.
+5. Click the ""Send"" button.","The email is sent successfully, and a confirmation message ""Message sent"" is displayed.
+"
+TC_002,Send Email with CC and BCC Fields Filled,Verify that an email can be sent successfully when CC and BCC fields are filled.,,"1. Click on the ""Compose"" button.
+2. Enter a valid email address in the ""To"" field (e.g., test@test.com).
+3. Enter another valid email address in the ""CC"" field.
+4. Enter a valid email address in the ""BCC"" field.
+5. Enter ""Incubyte"" in the ""Subject"" field.
+6. Enter ""QA test for Incubyte"" in the email body.
+7. Click the ""Send"" button.","The email is sent successfully to all recipients, and a confirmation message ""Message sent"" is displayed."
+TC_003,Attempt to Send an Email Without Recipient ,"Verify that an email cannot be sent when the ""To"" field is left blank.",,"1. Click on the ""Compose"" button.
+2. Leave the ""To"" field blank.
+3. Enter ""Incubyte"" in the ""Subject"" field.
+4. Enter ""QA test for Incubyte"" in the email body.
+5. Click the ""Send"" button.","The email is not sent, and an error message is displayed saying ""Please specify at least one recipient."""
+TC_004, Attempt to Send an Email Without a Subject, Verify the system prompts a warning when trying to send an email without a subject.,,"1. Click on the ""Compose"" button.
+2. Enter a valid email address in the ""To"" field (e.g., test@test.com).
+3. Leave the ""Subject"" field blank.
+4. Enter ""QA test for Incubyte"" in the email body.
+5. Click the ""Send"" button.","A warning message appears saying, ""Send this message without a subject?"" The user should have the option to either send the email without a subject or cancel the action."
+TC_005,Attempt to Send an Email Without a Body,Verify the system prompts a warning when trying to send an email without any text in the body.,,"1. Click on the ""Compose"" button.
+2. Enter a valid email address in the ""To"" field (e.g., test@test.com).
+3. Enter ""Incubyte"" in the ""Subject"" field.
+4. Leave the email body blank.
+5. Click the ""Send"" button.","A warning message appears saying, ""Send this message without text in the body?"" The user should have the option to either send the email or cancel the action.
+"
+TC_006,Attempt to Send Invalid Email,"Verify that an email cannot be sent when an invalid email address is entered in the ""To"" field.",,"1. Click on the ""Compose"" button.
+2. Enter an invalid email address in the ""To"" field (e.g., invalid-email).
+3. Enter ""Incubyte"" in the ""Subject"" field.
+4. Enter ""QA test for Incubyte"" in the email body.
+5. Click the ""Send"" button.","The email is not sent, and an error message is displayed indicating the email address is invalid.
+"
+TC_007,Send Email Without To & Subject        ,"Verify that an email cannot be sent when both the ""To"" and ""Subject"" fields are left blank.",,"1. Click on the ""Compose"" button.
+2. Leave the ""To"" field blank.
+3. Leave the ""Subject"" field blank.
+4. Enter ""QA test for Incubyte"" in the email body.
+5. Click the ""Send"" button.","The email is not sent, and an error message is displayed saying, ""Please specify at least one recipient."""
